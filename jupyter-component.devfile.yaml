@@ -1,0 +1,30 @@
+apiVersion: 1.0.0
+metadata:
+  name: python-workspace
+projects:
+  - name: jupyter-hello-world
+    source:
+      location: 'https://github.com/chasbecker/TextAnalysis.git'
+      type: git
+components:
+  - type: chePlugin
+    id: ms-python/python/latest
+    memoryLimit: 512Mi
+  - type: dockerimage
+    alias: jupyter
+    image: 'docker.io/submod/notebook-test:latest'
+    mountSources: true
+    endpoints:
+      - name: jupyter-server
+        port: 8888
+        attributes:
+          protocol: http
+          public: 'true'
+          discoverable: 'false'
+          secure: 'false'
+    memoryLimit: 512Mi
+    env:
+      - value: /workspace
+        name: JUPYTER_NOTEBOOK_DIR
+      - value: password
+        name: JUPYTER_NOTEBOOK_PASSWORD
