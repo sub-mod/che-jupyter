@@ -1,0 +1,13 @@
+apiVersion: 1.0.0
+metadata:
+  name: python-workspace
+projects:
+  - name: jupyter-hello-world1
+    source:
+      location: 'https://github.com/chasbecker/TextAnalysis.git'
+      type: git
+components:
+  - type: chePlugin
+    alias: python-2020.4.76186
+    reference: https://raw.githubusercontent.com/sub-mod/che-jupyter/master/new_python/meta.yml
+    memoryLimit: 512Mi

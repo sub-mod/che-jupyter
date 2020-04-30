@@ -9,6 +9,7 @@ projects:
 components:
   - type: chePlugin
     id: ms-python/python/latest
+    reference: https://raw.githubusercontent.com/sub-mod/che-jupyter/master/new_python/meta.yml
     memoryLimit: 512Mi
   - type: dockerimage
     alias: jupyter
